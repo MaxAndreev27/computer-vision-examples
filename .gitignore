@@ -1,0 +1,55 @@
+# Virtual environment (most important)
+.venv/
+venv/
+ENV/
+
+# Python cache (bytecode)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test cache (pytest)
+.pytest_cache/
+.cache/
+
+# VS Code settings (optional but useful)
+.vscode/
+
+# Game saves
+save.json
+
+# === Django specifics ===
+*.sqlite3
+db.sqlite3-journal
+
+# Sensitive settings and keys
+.env
+local_settings.py
+
+# Media files (user uploads)
+media/
+
+# Static files (collected after collectstatic)
+staticfiles/
+
+# Logs
+*.log
+
+# Data and training artifacts in repository root
+data/
+fashion_mnist_model/
+my_awesome_model/
+
+# PKL files (models saved with joblib or pickle)
+*.pkl
+
+# Keras model files
+*.keras
+
+# PyTorch model files
+*.pt
+
+# OS-specific files
+.DS_Store
+Thumbs.db
