@@ -11,6 +11,18 @@ body:
       description: What would you like to add or improve?
     validations:
       required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      description: Which project module would this request affect?
+      options:
+        - 01_low_level_image_processing
+        - 02_image_segmentation
+        - Both modules
+        - New module
+    validations:
+      required: true
   - type: textarea
     id: motivation
     attributes:

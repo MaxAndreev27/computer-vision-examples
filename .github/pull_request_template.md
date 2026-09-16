@@ -12,9 +12,10 @@
 
 ## Validation
 
-- [ ] I ran the affected notebook cells from a clean kernel.
+- [ ] I ran the affected notebook cells from a clean kernel (`simple-operations.ipynb` or `segmentation.ipynb`).
 - [ ] I verified that referenced images and paths exist.
 - [ ] I updated documentation or requirements when needed.
+- [ ] I verified the affected module from its own virtual environment.
 - [ ] I removed generated files and unrelated changes.
 
 ## Notes for Reviewers

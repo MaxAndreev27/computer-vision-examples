@@ -11,21 +11,25 @@ Thank you for contributing to `computer-vision-examples`.
 ## Development Setup
 
 ```bash
-cd 01_low_level_image_processing
+cd <module-directory>
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Use the project notebook and keep image paths relative to `01_low_level_image_processing`.
+Available module directories are `01_low_level_image_processing` and `02_image_segmentation`.
+Use the notebook in the selected module and keep image paths relative to that module.
+The segmentation module uses CPU-only PyTorch dependencies; do not add CUDA or NVIDIA
+packages to its requirements file.
 
 ## Notebook Changes
 
 - Keep cells focused and runnable from top to bottom.
 - Use clear English headings and output labels.
-- Check that referenced images exist in `images/`.
+- Check that referenced images exist in the module's `images/` directory.
 - Prefer reproducible examples and fixed random seeds when randomness is used.
 - Avoid committing large generated outputs unless they are required for the example.
+- For Mask R-CNN changes, document whether pretrained COCO weights and CPU inference were tested.
 
 ## Pull Requests
 
