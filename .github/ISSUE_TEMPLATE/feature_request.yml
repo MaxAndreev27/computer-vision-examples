@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest a new computer vision example or improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What would you like to add or improve?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation and learning goal
+      description: What problem would this solve or what concept would it demonstrate?
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Suggested implementation
+      description: Include algorithms, libraries, sample inputs, or relevant references.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and pull requests.
+          required: true
+        - label: This proposal fits the educational scope of the project.
+          required: true

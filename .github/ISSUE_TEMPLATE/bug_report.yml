@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a reproducible problem in an example or notebook.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please remove private image data before submitting.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem description
+      description: What went wrong?
+      placeholder: Describe the observed behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest set of steps or code needed to reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: Paste the complete traceback in a code block.
+      render: text
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: "3.13.13"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Operating system
+      placeholder: "Ubuntu 24.04"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I removed private or sensitive image data.
+          required: true
