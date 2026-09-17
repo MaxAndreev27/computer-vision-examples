@@ -50,6 +50,9 @@ my_awesome_model/
 # PyTorch model files
 *.pt
 
+# MediaPipe Tasks model files (downloaded automatically at runtime)
+*.task
+
 # OS-specific files
 .DS_Store
 Thumbs.db
