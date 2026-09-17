@@ -53,6 +53,9 @@ my_awesome_model/
 # MediaPipe Tasks model files (downloaded automatically at runtime)
 *.task
 
+# OpenCV Haar cascade files (downloaded automatically at runtime)
+haarcascade_*.xml
+
 # OS-specific files
 .DS_Store
 Thumbs.db
