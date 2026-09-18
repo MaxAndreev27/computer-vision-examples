@@ -25,6 +25,8 @@ packages to its requirements file.
 The high-level processing module uses a webcam for several examples, MediaPipe for hand
 landmarks, and OpenCV 4.x for the Caffe-based MobileNet SSD example. Keep camera cleanup
 in `finally` blocks when changing webcam cells, including both window-close and `Q` exit.
+The mouse-control example moves the OS cursor and must support both X11 (`autopy`) and
+Wayland (`ydotool`, detected via `XDG_SESSION_TYPE`); do not remove either code path.
 
 ## Notebook Changes
 

@@ -1,5 +1,6 @@
 absl-py==2.5.0
 asttokens==3.0.2
+autopy==4.0.2
 certifi==2026.7.22
 cffi==2.1.1
 comm==0.2.3

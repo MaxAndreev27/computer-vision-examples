@@ -80,10 +80,36 @@ The third module uses OpenCV and MediaPipe for:
 - Sparse optical flow with Shi-Tomasi corners and Lucas-Kanade tracking
 - Face detection and blurring with a Haar cascade
 - Live object detection with MobileNet SSD and Caffe
+- Controlling the mouse cursor with hand gestures (index finger moves the
+  cursor, pinching the index and middle fingers clicks)
 
-The gesture, face, and object-detection examples use a webcam. Press `Q` or close
-the OpenCV window to stop the camera; the examples release the camera in cleanup
-code. Linux users may need to grant the Python process access to the camera device.
+The gesture, face, object-detection, and mouse-control examples use a webcam. Press `Q`
+(or `Esc` for the mouse-control example) or close the OpenCV window to stop the camera;
+the examples release the camera in cleanup code. Linux users may need to grant the
+Python process access to the camera device.
+
+#### X11 vs. Wayland (mouse-control example)
+
+The mouse-control example moves the real OS cursor, which depends on the display
+server:
+
+- **X11 sessions**: the notebook uses [`autopy`](https://pypi.org/project/autopy/),
+  which works out of the box.
+- **Wayland sessions** (the default on recent Ubuntu releases): Wayland's security
+  model blocks apps from moving the system cursor through X11 APIs, so `autopy`
+  calls silently do nothing. The notebook detects `XDG_SESSION_TYPE=wayland` and
+  switches to [`ydotool`](https://github.com/ouilibrary/ydotool), which drives the
+  cursor through `/dev/uinput` instead. Install and configure it first:
+
+  ```bash
+  sudo apt install ydotool
+  sudo usermod -aG input $USER
+  # log out and back in so the group membership takes effect
+  ydotoold &
+  ```
+
+- Alternatively, log in to an **"Ubuntu on Xorg"** (or "GNOME on Xorg") session at
+  the login screen to keep using `autopy` unchanged.
 
 ```bash
 cd computer-vision-examples/03_high_level_image_processing
@@ -97,6 +123,9 @@ The MobileNet SSD example requires these files in the module directory:
 
 - `MobileNetSSD_deploy.prototxt.txt`
 - `MobileNetSSD_deploy.caffemodel`
+
+The mouse-control example additionally requires `autopy` (installed from
+`requirements.txt`) and, on Wayland sessions, `ydotool` (see above).
 
 Open `hight-image-processing.ipynb` and run the cells from top to bottom. The
 MobileNet SSD example requires OpenCV 4.x because OpenCV 5 removed its Caffe importer.
