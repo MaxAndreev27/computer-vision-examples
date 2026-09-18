@@ -4,21 +4,19 @@ Practical computer vision examples in Python using OpenCV, NumPy, Matplotlib, Sc
 
 ## Contents
 
-- Basic image operations: cropping, resizing, rotation, drawing, and text
-- Spatial filtering and image denoising
-- Geometric mean, Laplacian, Gaussian, bilateral, and sharpening filters
-- Butterworth and Wiener frequency-domain methods
-- Color palette extraction and HSV color analysis
-- Retinex enhancement and Haar-transform denoising
-- Threshold processing and corner detection
-- Image comparison and difference-image generation
-- Classical and neural-network image segmentation
+- [01 Low-level image processing](#01-low-level-image-processing)
+- [02 Image segmentation](#02-image-segmentation)
+- [03 High-level image processing](#03-high-level-image-processing)
 
 ## Getting Started
 
+Each module has its own `requirements.txt` and virtual environment because the
+examples use different dependency sets. Create the environment from inside the
+module you want to run:
+
 ```bash
 git clone https://github.com/MaxAndreev27/computer-vision-examples.git
-cd computer-vision-examples/01_low_level_image_processing
+cd computer-vision-examples/<module-directory>
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -30,9 +28,28 @@ On Windows PowerShell, activate the environment with:
 .venv\Scripts\Activate.ps1
 ```
 
-Open `simple-operations.ipynb` in VS Code or Jupyter and run the cells from top to bottom.
+Open the notebook in the selected module in VS Code or Jupyter and run its cells
+from top to bottom.
 
-### Image Segmentation
+### 01 Low-level image processing
+
+The first module demonstrates:
+
+- Basic image operations: cropping, resizing, rotation, drawing, and text
+- Spatial filtering, denoising, sharpening, and frequency-domain methods
+- Color palette extraction, HSV analysis, and Retinex enhancement
+- Threshold processing, corner detection, image comparison, and difference images
+
+```bash
+cd computer-vision-examples/01_low_level_image_processing
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Open `simple-operations.ipynb` and run the cells from top to bottom.
+
+### 02 Image segmentation
 
 The second module uses a separate virtual environment and demonstrates:
 
@@ -54,6 +71,36 @@ The segmentation requirements use CPU-only PyTorch wheels. The Mask R-CNN cell d
 pretrained COCO weights on its first run, so an internet connection is required initially.
 Open `segmentation.ipynb` and run the cells from top to bottom.
 
+### 03 High-level image processing
+
+The third module uses OpenCV and MediaPipe for:
+
+- CamShift object tracking in video
+- Hand landmark detection and English gesture labels
+- Sparse optical flow with Shi-Tomasi corners and Lucas-Kanade tracking
+- Face detection and blurring with a Haar cascade
+- Live object detection with MobileNet SSD and Caffe
+
+The gesture, face, and object-detection examples use a webcam. Press `Q` or close
+the OpenCV window to stop the camera; the examples release the camera in cleanup
+code. Linux users may need to grant the Python process access to the camera device.
+
+```bash
+cd computer-vision-examples/03_high_level_image_processing
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+The notebook downloads `hand_landmarker.task` and the Haar cascade when needed.
+The MobileNet SSD example requires these files in the module directory:
+
+- `MobileNetSSD_deploy.prototxt.txt`
+- `MobileNetSSD_deploy.caffemodel`
+
+Open `hight-image-processing.ipynb` and run the cells from top to bottom. The
+MobileNet SSD example requires OpenCV 4.x because OpenCV 5 removed its Caffe importer.
+
 ## Project Structure
 
 ```text
@@ -65,6 +112,12 @@ Open `segmentation.ipynb` and run the cells from top to bottom.
 ├── images/
 ├── requirements.txt
 └── segmentation.ipynb
+03_high_level_image_processing/
+├── images/
+├── requirements.txt
+├── MobileNetSSD_deploy.caffemodel
+├── MobileNetSSD_deploy.prototxt.txt
+└── hight-image-processing.ipynb
 ```
 
 ## Contributing

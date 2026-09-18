@@ -19,7 +19,8 @@ body:
       options:
         - 01_low_level_image_processing
         - 02_image_segmentation
-        - Both modules
+        - 03_high_level_image_processing
+        - Multiple modules
         - New module
     validations:
       required: true
