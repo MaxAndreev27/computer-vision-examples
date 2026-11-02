@@ -1,0 +1,16 @@
+[project]
+name = "low-level-image-processing"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "ipykernel==7.3.0",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "opencv-python==5.0.0.93",
+    "pillow==12.3.0",
+    "scikit-learn==1.9.1",
+    "scipy==1.18.1",
+]
+
+[tool.uv]
+package = false

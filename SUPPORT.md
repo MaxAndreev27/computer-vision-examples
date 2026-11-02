@@ -11,7 +11,7 @@
 When asking for help, include:
 
 - Operating system and Python version
-- Package versions from `requirements.txt`
+- Package versions from the module's `uv.lock`
 - The notebook section or cell involved
 - The exact error message
 - Minimal reproduction steps

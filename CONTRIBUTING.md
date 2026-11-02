@@ -12,16 +12,16 @@ Thank you for contributing to `computer-vision-examples`.
 
 ```bash
 cd <module-directory>
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
 
 Available module directories are `01_low_level_image_processing`, `02_image_segmentation`,
-and `03_high_level_image_processing`. Use the notebook in the selected module and keep
-image and model paths relative to that module.
+and `03_high_level_image_processing`. Each module pins Python 3.12.16 in `.python-version`
+and its dependencies in `uv.lock`. `uv sync` creates the `.venv` and installs those
+dependencies. Use that environment as the notebook kernel, and keep image and model
+paths relative to the selected module.
 The segmentation module uses CPU-only PyTorch dependencies; do not add CUDA or NVIDIA
-packages to its requirements file.
+packages to its `pyproject.toml`.
 The high-level processing module uses a webcam for several examples, MediaPipe for hand
 landmarks, and OpenCV 4.x for the Caffe-based MobileNet SSD example. Keep camera cleanup
 in `finally` blocks when changing webcam cells, including both window-close and `Q` exit.

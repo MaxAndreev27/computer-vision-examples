@@ -10,26 +10,19 @@ Practical computer vision examples in Python using OpenCV, NumPy, Matplotlib, Sc
 
 ## Getting Started
 
-Each module has its own `requirements.txt` and virtual environment because the
-examples use different dependency sets. Create the environment from inside the
-module you want to run:
+Each module has its own `pyproject.toml` and `uv.lock` because the examples use
+different dependency sets. The `.python-version` files pin Python 3.12.16. Install
+[uv](https://docs.astral.sh/uv/) first, then sync the module you want to run:
 
 ```bash
 git clone https://github.com/MaxAndreev27/computer-vision-examples.git
 cd computer-vision-examples/<module-directory>
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+uv sync
 ```
 
-On Windows PowerShell, activate the environment with:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Open the notebook in the selected module in VS Code or Jupyter and run its cells
-from top to bottom.
+`uv sync` creates the module's `.venv` and installs the locked dependencies. Select
+that environment as the notebook kernel in VS Code or Jupyter, then run the notebook
+cells from top to bottom.
 
 ### 01 Low-level image processing
 
@@ -42,9 +35,7 @@ The first module demonstrates:
 
 ```bash
 cd computer-vision-examples/01_low_level_image_processing
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+uv sync
 ```
 
 Open `simple-operations.ipynb` and run the cells from top to bottom.
@@ -62,12 +53,10 @@ The second module uses a separate virtual environment and demonstrates:
 
 ```bash
 cd computer-vision-examples/02_image_segmentation
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+uv sync
 ```
 
-The segmentation requirements use CPU-only PyTorch wheels. The Mask R-CNN cell downloads
+The segmentation module is locked to CPU-only PyTorch wheels. The Mask R-CNN cell downloads
 pretrained COCO weights on its first run, so an internet connection is required initially.
 Open `segmentation.ipynb` and run the cells from top to bottom.
 
@@ -113,9 +102,7 @@ server:
 
 ```bash
 cd computer-vision-examples/03_high_level_image_processing
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+uv sync
 ```
 
 The notebook downloads `hand_landmarker.task` and the Haar cascade when needed.
@@ -124,8 +111,8 @@ The MobileNet SSD example requires these files in the module directory:
 - `MobileNetSSD_deploy.prototxt.txt`
 - `MobileNetSSD_deploy.caffemodel`
 
-The mouse-control example additionally requires `autopy` (installed from
-`requirements.txt`) and, on Wayland sessions, `ydotool` (see above).
+The mouse-control example additionally requires `autopy` (included in the module's
+uv dependencies) and, on Wayland sessions, `ydotool` (see above).
 
 Open `hight-image-processing.ipynb` and run the cells from top to bottom. The
 MobileNet SSD example requires OpenCV 4.x because OpenCV 5 removed its Caffe importer.
@@ -135,15 +122,21 @@ MobileNet SSD example requires OpenCV 4.x because OpenCV 5 removed its Caffe imp
 ```text
 01_low_level_image_processing/
 ├── images/
-├── requirements.txt
+├── .python-version
+├── pyproject.toml
+├── uv.lock
 └── simple-operations.ipynb
 02_image_segmentation/
 ├── images/
-├── requirements.txt
+├── .python-version
+├── pyproject.toml
+├── uv.lock
 └── segmentation.ipynb
 03_high_level_image_processing/
 ├── images/
-├── requirements.txt
+├── .python-version
+├── pyproject.toml
+├── uv.lock
 ├── MobileNetSSD_deploy.caffemodel
 ├── MobileNetSSD_deploy.prototxt.txt
 └── hight-image-processing.ipynb
